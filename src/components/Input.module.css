@@ -1,0 +1,112 @@
+.inputMake {
+    width: 62.75rem;
+    display: flex;
+
+    align-items: center;
+    gap: 8px;
+    margin-top: calc(0px - calc(2rem + 1.5875rem));
+}
+
+.inputMake > input {
+    width: 56rem;
+    height: 3.175rem;
+    border-radius: 8px;
+    border: 0;
+    padding: 1rem;
+    border: 1px solid var(--gray-700);
+    background: var(--gray-500);
+
+    color: var(--gray-100);
+}
+
+.inputMake > button[type=submit] {
+    width: 6.25rem;
+    height: 3.175rem;
+    border-radius: 8px;
+    border: 0;
+    background: var(--blue-dark);
+    color: var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+}
+
+.inputMake button:disabled {
+    background: var(--blue-todark);
+    cursor: not-allowed;
+}
+
+.inputMake button[type=submit]:not(:disabled):hover {
+    background: var(--blue);
+}
+
+.tasks {
+    width: 62.75rem;
+    display: flex;
+
+    align-items: flex-start;
+    margin-top: 4rem;
+}
+
+.tasks > header {
+    display: flex;
+    width: 62.75rem;
+
+    justify-content: space-between;
+}
+
+.todos {
+    line-height: 1.4;
+    display: flex;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: var(--blue);
+    align-items: center;
+}
+
+.concludedTodos{
+    line-height: 1.4;
+    display: flex;
+    gap: 8px;
+    color: var(--purple);
+    font-size: 0.875rem;
+    align-items: center;
+}
+
+.pagination {
+    background: var(--gray-400);
+    padding: 0.125rem 0.5rem;
+    border-radius: 62.4375rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.withoutTodo {
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--gray-400);
+    border-radius: 8px;
+    padding-top: 4rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.withoutTodo > img {
+    margin-bottom: 1rem;
+}
+
+.withoutTodo > strong, .withoutTodo > span {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--gray-300);
+}
+
+.tasksTodos {
+   margin-top: 1.5rem;
+}
