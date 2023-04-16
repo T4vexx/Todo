@@ -42,6 +42,27 @@
     
 }
 
+.simulaRadioCompleted {
+    width: 1.25rem;
+    height: 1.25rem;
+
+    background: var(--purple-dark);
+    border-radius: 50%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: border 0.2s;
+    transition: background 0.2s;
+}
+
+.checkBox .simulaRadioCompleted:hover  {
+    background: var(--purple);
+    
+}
+
 .todoContent {
     width: 55rem;
 }

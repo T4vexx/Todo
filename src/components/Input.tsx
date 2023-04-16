@@ -23,6 +23,24 @@ export function Input() {
         setNewTodoContent('')
     }
 
+    const handleChangeTodoState = (id: string) => {
+        const changedState = newTodo.find(t => t.id === id)!
+        const newChangedState = {
+            id: changedState.id,
+            content: changedState.content,
+            isCompleted: !changedState.isCompleted
+        }
+        const arrayWithoutChanged = newTodo.filter(t => t.id !== id)
+        arrayWithoutChanged.push(newChangedState)
+
+        setNewTodo(arrayWithoutChanged)
+    }
+
+    const deleteTodo = (id: string) => {
+        const refactorComments = newTodo.filter(t =>  t.id !== id )
+        setNewTodo(refactorComments)
+    }
+
     const handleNewCommentInvalid = (event: InvalidEvent<HTMLInputElement>) => {
         event.target.setCustomValidity('Esse campo é obrigatório')
     }
@@ -33,6 +51,8 @@ export function Input() {
     }
 
     const isNewToDoEmpty = newTodoContent.length === 0
+    const createdTodosNumber = newTodo.length
+    const completedTodosNumber = newTodo.filter(t => t.isCompleted !== false).length
 
     return (
         <>
@@ -54,12 +74,12 @@ export function Input() {
                 <header>
                     <div className={styles.todos}>
                         <strong>Tarefas criadas</strong>
-                        <div className={styles.pagination}><span>0</span></div>
+                        <div className={styles.pagination}><span>{createdTodosNumber}</span></div>
                     </div>
 
                     <div className={styles.concludedTodos}>
                         <strong>Concluidas</strong>
-                        <div className={styles.pagination}><span>2 de 5</span></div>
+                        <div className={styles.pagination}><span>{completedTodosNumber} de {createdTodosNumber}</span></div>
                     </div>
                 </header>
             </div>
@@ -67,7 +87,7 @@ export function Input() {
             {newTodo.length > 0 ? (
                 <div className={styles.tasksTodos}>
                     {newTodo.map(t => {
-                        return <Todo key={t.id} data={t} />
+                        return <Todo key={t.id} deleteTodo={deleteTodo} handleStateChange={handleChangeTodoState} data={t} />
                     })}
                 </div>
             ) :
